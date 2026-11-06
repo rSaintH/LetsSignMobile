@@ -1,0 +1,34 @@
+server:
+  port: ${PORT:8088}
+
+spring:
+  application:
+    name: letssign-backend
+  datasource:
+    url: jdbc:h2:file:${LETSSIGN_DATA:./data}/letssign;AUTO_SERVER=TRUE
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  h2:
+    console:
+      enabled: ${H2_CONSOLE:false}
+      path: /h2-console
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 30MB
+
+letssign:
+  storage-dir: ${LETSSIGN_DATA:./data}/files
+  # troque em produção: LETSSIGN_JWT_SECRET com 32+ caracteres
+  jwt-secret: ${LETSSIGN_JWT_SECRET:dev-only-secret-troque-isso-0123456789abcdef}
+  jwt-ttl-minutes: ${LETSSIGN_JWT_TTL:720}
+  admin-email: ${LETSSIGN_ADMIN_EMAIL:admin@letssign.com}
+  admin-password: ${LETSSIGN_ADMIN_PASSWORD:admin123}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

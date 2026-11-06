@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:letssign-test;DB_CLOSE_DELAY=-1
+letssign:
+  storage-dir: ${java.io.tmpdir}/letssign-test-${random.uuid}
